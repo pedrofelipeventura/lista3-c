@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+    int i, len;
+
+    // Solicita a string ao usuário
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);  // Lê a string com espaços
+    
+    // Remove o caractere de nova linha gerado pelo fgets (se presente)
+    str[strcspn(str, "\n")] = '\0';
+
+    // Calcula o comprimento da string
+    len = strlen(str);
+
+    // Exibe a string na forma inversa
+    printf("A string invertida é: ");
+    for (i = len - 1; i >= 0; i--) {
+        putchar(str[i]);  // Imprime cada caractere da string de trás para frente
+    }
+    printf("\n");
+
+    return 0;
+}
