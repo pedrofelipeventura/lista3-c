@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+int main() {
+    int vetor[3];
+    int i;
+    double soma = 0, produto = 1;
+    
+    // Inicializa o gerador de números aleatórios com base no tempo atual
+    srand(time(NULL));
+    
+    // Gera 3 números aleatórios no intervalo [0, 19]
+    for (i = 0; i < 3; i++) {
+        vetor[i] = rand() % 20;  // Gera um número aleatório entre 0 e 19
+        soma += vetor[i];         // Soma os números para a média aritmética
+        produto *= vetor[i];      // Multiplica os números para a média geométrica
+    }
+    
+    // Calculando a média aritmética
+    double mediaAritmetica = soma / 3;
+    
+    // Calculando a média geométrica (usando a função pow para calcular a raiz cúbica)
+    double mediaGeometrica = pow(produto, 1.0 / 3.0);
+    
+    // Exibindo os números do vetor
+    printf("Números gerados: ");
+    for (i = 0; i < 3; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+    
+    // Exibindo as médias
+    printf("Média Aritmética: %.2f\n", mediaAritmetica);
+    printf("Média Geométrica: %.2f\n", mediaGeometrica);
+    
+    return 0;
+}
