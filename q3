@@ -1,0 +1,21 @@
+
+#include <stdio.h>
+
+int main() {
+    char str[100];  // Definindo um array para armazenar a string
+    int i = 0;      // Variável para contar os caracteres
+
+    // Solicita a string ao usuário
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);  // Lê a string, incluindo espaços
+
+    // Contar o número de caracteres na string (parando ao encontrar o caractere nulo '\0')
+    while (str[i] != '\0' && str[i] != '\n') {
+        i++;  // Incrementa o contador para cada caractere
+    }
+
+    // Exibe a quantidade de caracteres
+    printf("A quantidade de caracteres da string é: %d\n", i);
+
+    return 0;
+}
