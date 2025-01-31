@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define LINHAS 3  // Define o número de linhas da matriz
+#define COLUNAS 3 // Define o número de colunas da matriz
+
+int main() {
+    int matriz[LINHAS][COLUNAS];
+    int x, i, j;
+    int contador = 0;
+
+    // Inicializa o gerador de números aleatórios
+    srand(time(NULL));
+
+    // Gera a matriz com números aleatórios no intervalo [0, 9]
+    printf("Matriz gerada:\n");
+    for (i = 0; i < LINHAS; i++) {
+        for (j = 0; j < COLUNAS; j++) {
+            matriz[i][j] = rand() % 10;  // Gera números aleatórios entre 0 e 9
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Solicita o valor x ao usuário
+    printf("\nDigite um valor para x: ");
+    scanf("%d", &x);
+
+    // Conta quantas vezes x aparece na matriz
+    for (i = 0; i < LINHAS; i++) {
+        for (j = 0; j < COLUNAS; j++) {
+            if (matriz[i][j] == x) {
+                contador++;
+            }
+        }
+    }
+
+    // Exibe o resultado
+    if (contador > 0) {
+        printf("\nO valor %d aparece %d vez(es) na matriz.\n", x, contador);
+    } else {
+        printf("\nO valor %d nao aparece na matriz.\n", x);
+    }
+
+    return 0;
+}
